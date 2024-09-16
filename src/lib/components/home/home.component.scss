@@ -1,0 +1,181 @@
+@import '../../../styles.scss';
+
+.container {
+  max-width: 100%;
+  width: 100%;
+  padding: 20px;
+  background: $color-primary;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+h1 {
+  color: $color-tertiary;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.input-group {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  margin: 0 auto;
+  background: $color-fourth;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background: $color-fourth;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  appearance: none;
+}
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 400px;
+}
+
+.dropdown-button {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background: $color-fourth;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow {
+  font-size: 0.8rem;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid $color-primary;
+  border-radius: 20px;
+  background: $color-fourth;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 2px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 12px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background: $color-fourth;
+}
+
+.text-danger {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+.btn-primary {
+  background-color: $color-secondary;
+  border: none;
+  color: $color-fourth;
+  padding: 12px 24px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.btn-primary:hover {
+  background-color: darken($color-secondary, 10%);
+  transform: translateY(-2px);
+}
+
+.btn-primary:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 12px;
+  }
+
+  .input-group,
+  select {
+    font-size: 0.9rem;
+  }
+
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .input-group,
+  select {
+    font-size: 0.875rem;
+  }
+
+  .btn-primary {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}

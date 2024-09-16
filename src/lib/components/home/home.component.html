@@ -1,0 +1,43 @@
+<div class="container">
+  <h1>Chat con SignalR</h1>
+  <form [formGroup]="form">
+    <div class="form-group">
+      <input
+        id="userName"
+        formControlName="userName"
+        class="input-group"
+        placeholder="Nombre"
+      />
+      <div *ngIf="form.get('userName')?.invalid && form.get('userName')?.touched" class="text-danger">
+        <div *ngIf="form.get('userName')?.errors?.['required']">El nombre es obligatorio.</div>
+        <div *ngIf="form.get('userName')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="custom-dropdown">
+        <button class="dropdown-button" (click)="toggleRoom()">
+          {{ selectedRoomName || 'Selecciona una sala' }}
+          <span class="arrow">&#9662;</span>
+        </button>
+        <ul class="dropdown-menu" [ngClass]="{'show': toggle}">
+          <li *ngFor="let room of rooms$ | async" (click)="selectOption(room)">
+            {{ room.name }}
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="form.get('room')?.invalid && form.get('room')?.touched" class="text-danger">
+        Selecciona una sala.
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="btn-primary"
+      (click)="joinRoom()"
+      [disabled]="form.invalid"
+    >
+      Unirse
+    </button>
+  </form>
+</div>

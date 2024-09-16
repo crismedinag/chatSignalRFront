@@ -1,0 +1,49 @@
+<div class="chat-container">
+  <div class="header">
+    <h2>Chat - {{ currentRoomName }}</h2>
+    <p>¡Hola, {{ currentUser }}!</p>
+    <button class="users-toggle" (click)="toggleUsersList()">
+      Users
+    </button>
+  </div>
+
+  <div class="connected-users" [ngClass]="{ 'show': usersListVisible }">
+    <ul>
+      <li *ngFor="let user of connectedUsers$ | async">{{ user }}</li>
+    </ul>
+  </div>
+
+  <ng-container *ngIf="messages$ | async as messages">
+    <div *ngIf="messages.length > 0" class="chat-date">
+      {{ formatDate(messages[0].timestamp) }}
+    </div>
+  </ng-container>
+
+  <div class="message-list">
+    <div
+      *ngFor="let message of messages$ | async"
+      class="message"
+      [ngClass]="{ 'own-message': message.user === currentUser }"
+    >
+      <div class="message-info">
+        <strong>{{ message.user }}:</strong>
+        <span>{{ formatTime(message.timestamp) }}</span>
+      </div>
+      <div class="message-text">
+        {{ message.message }}
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="sendMessage()" class="message-form">
+    <textarea
+      formControlName="message"
+      placeholder="Escribe un mensaje..."
+      rows="3"
+    ></textarea>
+    <div class="form-actions">
+      <button type="button" (click)="leaveRoom()">Volver</button>
+      <button type="submit" [disabled]="!form.valid">Enviar</button>
+    </div>
+  </form>
+</div>

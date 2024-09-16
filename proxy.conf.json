@@ -1,0 +1,8 @@
+{
+  "/chatHub": {
+    "target": "http://localhost:5224",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

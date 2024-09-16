@@ -1,0 +1,205 @@
+@import '../../../styles.scss';
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 15px;
+  background: $color-fourth;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.header {
+  background: $color-primary;
+  color: $color-tertiary;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  border-bottom: 1px solid $color-fourth;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.header p {
+  margin: 5px 0 0;
+  font-size: 1em;
+}
+
+.users-toggle {
+  position: absolute;
+  right: 25px;
+  top: 40px;
+  background: $color-fourth;
+  color: $color-tertiary;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.users-toggle:hover {
+  background: darken($color-secondary, 10%);
+  color: $color-fourth;
+}
+
+.connected-users {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 15px;
+  width: 200px;
+  background: $color-primary;
+  color: $color-tertiary;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  overflow-y: auto;
+}
+
+.connected-users.show {
+  display: block;
+  margin-top: 40px;
+}
+
+/*
+.connected-users h3 {
+  margin: 0;
+  padding: 10px;
+  font-size: 1.2em;
+  border-bottom: 1px solid $color-tertiary;
+}
+*/
+
+.connected-users ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.connected-users li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.connected-users li:last-child {
+  border-bottom: none;
+}
+
+.chat-date {
+  background: $color-secondary;
+  padding: 5px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 10px 0;
+  color: $color-fourth
+}
+
+.message-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: $color-fourth;
+  border-radius: 10px;
+  max-height: 60vh;
+}
+
+.message {
+  background: $color-primary;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  max-width: 80%;
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  color: $color-tertiary;
+}
+
+.own-message {
+  background: $color-secondary;
+  color: $color-fourth;
+  margin-left: auto;
+}
+
+.message-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+}
+
+.message-info strong {
+  color: $color-tertiary;
+}
+
+.message-info span {
+  color: $color-tertiary;
+}
+
+.message-text {
+  margin-top: 5px;
+}
+
+.message-form {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  resize: none;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid $color-fourth;
+  margin-bottom: 10px;
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+textarea:focus {
+  border-color: $color-secondary;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background: $color-primary;
+  color: $color-tertiary;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: darken($color-secondary, 10%);
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .chat-container {
+    height: 90vh;
+  }
+
+  .message-list {
+    max-height: 70vh;
+  }
+}
